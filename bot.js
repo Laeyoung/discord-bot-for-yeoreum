@@ -156,6 +156,7 @@ for (const module of buttonCommands) {
 
 		console.log('button command:', command);
 
+
 		client.buttonCommands.set(command.id, command);
 	}
 }
