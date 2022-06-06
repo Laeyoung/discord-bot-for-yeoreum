@@ -4,6 +4,9 @@
  * @since 3.0.0
  */
 
+const { MessageButton, MessageActionRow } = require("discord.js");
+
+
 module.exports = {
 	name: "interactionCreate",
 
@@ -17,9 +20,21 @@ module.exports = {
 		// Deconstructed client from interaction object.
 		const { client } = interaction;
 
+		console.log('1');
+
 		// Checks if the interaction is a button interaction (to prevent weird bugs)
 
 		if (!interaction.isContextMenu()) return;
+
+		// # reply with button
+		// const row = new MessageActionRow()
+		// 	.addComponents(
+		// 		new MessageButton()
+		// 			.setCustomId('primary')
+		// 			.setLabel('Primary')
+		// 			.setStyle('PRIMARY'),
+		// 	);
+		// await interaction.reply({ content: 'Pong!', components: [row] });
 
 		/**********************************************************************/
 
