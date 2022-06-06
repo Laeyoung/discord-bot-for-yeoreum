@@ -74,6 +74,8 @@ for (const folder of commandFolders) {
 		.readdirSync(`./commands/${folder}`)
 		.filter((file) => file.endsWith(".js"));
 	for (const file of commandFiles) {
+		console.log('commands::', file);
+
 		const command = require(`./commands/${folder}/${file}`);
 		client.commands.set(command.name, command);
 	}
@@ -92,12 +94,19 @@ const slashCommands = fs.readdirSync("./interactions/slash");
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const module of slashCommands) {
+	console.log('module:', module);
+
 	const commandFiles = fs
 		.readdirSync(`./interactions/slash/${module}`)
 		.filter((file) => file.endsWith(".js"));
 
+	console.log('commandFiles:', commandFiles.length);
+
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/slash/${module}/${commandFile}`);
+
+		console.log('command:', command);
+
 		client.slashCommands.set(command.data.name, command);
 	}
 }
@@ -195,8 +204,11 @@ const commandJsonData = [
 				Routes.applicationCommands(client_id)
 			 */
 
-			Routes.applicationGuildCommands(client_id, test_guild_id),
+			Routes.applicationCommands(client_id),
 			{ body: commandJsonData }
+
+			// Routes.applicationGuildCommands(client_id, test_guild_id),
+			// { body: commandJsonData }
 		);
 
 		console.log("Successfully reloaded application (/) commands.");
