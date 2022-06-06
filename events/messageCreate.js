@@ -31,6 +31,8 @@ module.exports = {
 
 		// Checks if the bot is mentioned in the message all alone and triggers onMention trigger.
 		// You can change the behavior as per your liking at ./messages/onMention.js
+		console.log('message.content:', message.content);
+		console.log('client.user.id:', client.user.id);
 
 		if (
 			message.content == `<@${client.user.id}>` ||

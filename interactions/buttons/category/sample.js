@@ -14,6 +14,8 @@ module.exports = {
 	 */
 
 	async execute(interaction) {
+		console.log('??????');
+
 		await interaction.reply({
 			content: "This was a reply from button handler!",
 		});
