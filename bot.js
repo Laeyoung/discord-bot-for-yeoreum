@@ -153,6 +153,10 @@ for (const module of buttonCommands) {
 
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/buttons/${module}/${commandFile}`);
+
+		console.log('button command:', command);
+
+
 		client.buttonCommands.set(command.id, command);
 	}
 }
