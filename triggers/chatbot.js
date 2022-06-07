@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const { yeoreum_api_endpoint } = process.env;
+const { api_endpoint } = process.env;
 
 module.exports = {
 	keywords: ["ainft"],
@@ -16,7 +16,7 @@ module.exports = {
 	async execute(message, args) {
 		console.log('Request: ', message.toString());
 
-		const responseBody = await fetch(yeoreum_api_endpoint + '?message=' + encodeURIComponent(message.toString()));
+		const responseBody = await fetch(api_endpoint + '?message=' + encodeURIComponent(message.toString()));
 		const responseText = await responseBody.text();
 
 		console.log('Response: ', responseText);
