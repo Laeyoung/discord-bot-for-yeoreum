@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const { yeoreum_api_endpoint } = require("../config.json");
+const { yeoreum_api_endpoint } = process.env;
 
 module.exports = {
 	keywords: ["ainft"],

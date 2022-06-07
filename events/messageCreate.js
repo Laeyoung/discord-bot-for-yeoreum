@@ -4,7 +4,7 @@
 
 // Declares constants (destructured) to be used in this file.
 const { Collection } = require("discord.js");
-const { prefix, owner } = require("../config.json");
+const { prefix, owner } = process.env;
 
 // Prefix regex, we will use to match in mention prefix.
 const escapeRegex = (string) => {
@@ -21,14 +21,6 @@ module.exports = {
 	async execute(message) {
 		// Declares const to be used.
 		const { client, guild, channel, content, author } = message;
-
-		// Checks if the bot is mentioned in the message all alone and triggers onMention trigger.
-		// You can change the behavior as per your liking at ./messages/onMention.js
-		// console.log('message.content:', message.content);
-		// console.log('client.user.id:', client.user.id);
-		// console.log('guild:', guild);
-		console.log('channel:', channel.name);
-
 
 		if (
 			message.content == `<@${client.user.id}>` ||

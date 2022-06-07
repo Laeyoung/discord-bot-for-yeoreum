@@ -21,18 +21,15 @@ module.exports = {
 	 * @param {*} message The message which was created.
 	 */
 	async execute(message) {
-		const { content } = message;
+		const { content, channel } = message;
 
-		/**
-		 * @type {String[]}
-		 * @description The Message Content of the received message seperated by spaces (' ') in an array, this excludes prefix and command/alias itself.
-		 */
 		const args = content.split(/ +/);
+		const { name: channelName } = channel
 
 		// Checks if the trigger author is a bot. Comment this line if you want to reply to bots as well.
 		if (message.author.bot) return;
-
-		console.log(message);
+		// Skip if channelName is not equal to trigger channel
+		if (channelName.toLowerCase() !== process.env.trigger_channel) return;
 
 		await message.client.triggers.every(async (trigger) => {
 			if (!isNeedToTriggered(content, trigger)) return;

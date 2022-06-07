@@ -46,6 +46,9 @@ module.exports = {
 			return interaction.reply({ embeds: [embed] });
 		}
 
+		// save at process.env
+		process.env.trigger_channel = name;
+
 		const embed = new MessageEmbed().setColor(0x4286f4)
 			.setTitle(`Activiated!`)
 			.setDescription("AINFT Chatbot has been activated in " + '`' + name + '` channel');
