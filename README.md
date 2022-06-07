@@ -11,14 +11,24 @@
 #### • **Slash Command Handler:**
 
 - Slash Command(/command)를 손쉽게 수정해서 만들 수 있습니다.
-- The commands, in the slashCommands folder, receive an [`CommandInteraction`](https://discord.js.org/#/docs/main/stable/class/CommandInteraction) object. You can see the [documentation of discord.js](https://discord.js.org/#/docs/main/stable/class/CommandInteraction) for all the properties and methods available.
-- **IMPORTANT:** In the template, we are sending the slash commands to discord to be registered only to 1 guild. That is because their are 2 types of slash commands, guild and global. Guild commands are restricted to 1 guild but whenever you update them, they take effect immediately, whereas global commands take upto 1 hour to take effect. So use guild commands in development and global commands for production.
+- ./interactions/slash 폴더 아래 slash command 파일을 추가하고 [`CommandInteraction`](https://discord.js.org/#/docs/main/stable/class/CommandInteraction) object를 넣는 식으로 command를 추가 할 수 있습니다 . 자세한 내용은 아래 [documentation of discord.js](https://discord.js.org/#/docs/main/stable/class/CommandInteraction) 를 참고해 주세요.
+- 대충 [setChannel.js](https://github.com/Laeyoung/discord-bot/blob/master/interactions/slash/setChannel.js) 를 복붙한 후에 바꾸는 식으로 하면 됩니다.  
+- **중요:** Discord Bot은 2가지 형태로 등록을 할 수 있습니다. 내가 지정한 Discord Server (개발문서에서는 Guild라는 용어를 사용)만 사용하게 하는 것과 Global 하게 모든 Server에서 사용하게 하는 방법, 2가지가 있습니다. 전자는 내가 설정한 서버에서만 사용 할 수 있고, 새로 생성한 Slash Command가 바로 반영이 됩니다. 후자는 반영이 되는데 최대 1시간까지 걸릴 수 있습니다.
 
 #### • **Trigger Handler:**
 
-- Triggers occur when a specific "phrase" is said in a message content. For example, if you want your bot to react with :heart: when someone say `welcome` in their message, you can do that with this trigger handler!
-- Trigger Handler also has the same skeleton structure as of command handler. The trigger handler is associated with the [triggers](https://github.com/NamVr/DiscordBot-Template/tree/master/triggers/) folder. There are trigger categories, like [reactions](https://github.com/NamVr/DiscordBot-Template/tree/master/triggers/reactions) folder, in the trigger folder.
-- A sample trigger command is given in the [`chatbot.js`](https://github.com/NamVr/DiscordBot-Template/tree/master/triggers/reactions/hello.js) trigger file.
+- Trigger는 유저가 `특정 채널`에 보낸 보낸 메세지에 `특정 문구`가 있을 때, 동작을 합니다.
+- 채널은 설정을 해야하며, `/set-channel` 명령어를 이용해 설정 할 수 있습니다.
+- 기본 설정은 아래와 같이 설정 되어 있습니다.
+  - keywords: `ainft`
+  - prefixes: `yeoreum`
+  - suffixes: `?`
+- 예를 들어, `?`로 끝나는 문장에 Trigger가 됩니다.
+- 자세한 내용은 다음 파일을 참고해보세요, [`chatbot.js`](https://github.com/Laeyoung/discord-bot/blob/master/triggers/chatbot.js).
+
+## Requirements
+
+Node.js 16+
 
 ## Install
 
@@ -41,10 +51,6 @@ npm start
 ```sh
 npm run dev
 ```
-
-## Requirements
-
-Node.js 16+
 
 
 ## 📝 Acknowledgments
