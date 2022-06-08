@@ -57,4 +57,6 @@ npm run dev
 
 This project is based on [DiscordBot-Template](https://github.com/NamVr/DiscordBot-Template) by [Naman Vrati](https://github.com/NamVr)
 
+Deployed on [![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/Laeyoung/discord-bot-for-yeoreum)
+
 ---
